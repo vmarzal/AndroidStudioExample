@@ -2,7 +2,7 @@ package com.example.example
 
 class DataManager {
 
-    private val courses = HashMap<String, CourseInfo>()
+    val courses = HashMap<String, CourseInfo>()
     val notes = ArrayList<NoteInfo>()
 
     init {
