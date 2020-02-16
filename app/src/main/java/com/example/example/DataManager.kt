@@ -1,12 +1,25 @@
 package com.example.example
 
-class DataManager {
+object DataManager {
 
     val courses = HashMap<String, CourseInfo>()
     val notes = ArrayList<NoteInfo>()
 
     init {
         initializeCourses()
+        initializeNotes()
+    }
+
+    private fun initializeNotes() {
+        var defaultCourse = CourseInfo("default", "DEFAULT")
+
+        var noteInfo = NoteInfo(courses.getOrDefault("java_code", defaultCourse), "The default course",
+            "Default note for course")
+        notes.add(noteInfo)
+
+        noteInfo = NoteInfo(courses.getOrDefault("android_async", defaultCourse), "Parameters",
+            "Leverage variable-length parameters")
+        notes.add(noteInfo)
     }
 
     private fun initializeCourses() {
